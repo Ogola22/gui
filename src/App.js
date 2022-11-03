@@ -2,12 +2,14 @@
 //import { BrowserRouter as Router, Rout, Switch } from 'react-router-dom';
 
 import './App.css';
+import Navs from './Components/nav';
 import Login from './Components/login';
 
 function App() {
   return (
     <div className="App">
 
+      <Navs />
       <Login />
     </div>
   );
