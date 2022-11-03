@@ -1,11 +1,14 @@
-import React from 'react'
+//import React, { useState } from 'react';
+//import { BrowserRouter as Router, Rout, Switch } from 'react-router-dom';
+
 import './App.css';
-import Navbar from "./Components/navbar";
+import Login from './Components/login';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+
+      <Login />
     </div>
   );
 }
