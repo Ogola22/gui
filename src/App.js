@@ -1,33 +1,25 @@
 //import React, { useState } from 'react';
-//import { BrowserRouter as Router, Rout, Switch } from 'react-router-dom';
+//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import Navs from './Components/nav';
-import Navbar from './Components/navbar'
+//import Navbar from './Components/navbar'
 import Login from './Components/login';
+import SignUp from './Components/signup';
 
 function App() {
   return (
-    <Router>
+  
     <div className="App">
 
-    <Navs />
-    <div classname ="content">
-      <Switch>
-        <Route exact path="/">
-          <Login />
-        </Route>
+       <Navs />
 
-        <Route path ="/Signup">
-        
-        </Route>
-      </Switch>
-    </div>
-    
-    </div>
-  </Router>
+       <Login />
 
-);
+       <SignUp />
+    </div>
+
+  );
    
   
 }
