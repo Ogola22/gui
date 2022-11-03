@@ -1,10 +1,13 @@
+
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 function Login() {
   return (
-    <Form>
+    <div className='form-content'>
+      <h4 align="center">Login here.....</h4>
+      <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />
@@ -24,6 +27,7 @@ function Login() {
         Submit
       </Button>
     </Form>
+    </div>
   );
 }
 
