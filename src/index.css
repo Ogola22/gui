@@ -15,9 +15,6 @@ code {
   font-family: "Quicksand";
   color: #333;
 }
-Form{
-  align-items: center;
-}
 mb-3{
   display: flex;
 }
