@@ -24,7 +24,7 @@ const Signup =()=>{
         headers: {"content-type": "application/json"},
         body: JSON.stringify(data)
     }).then(response=>response.json())
-    ,then(result=>alert(JSON.stringify(resulrt.error.message, null, 2)))
+    .then(result=>alert(JSON.stringify(result.error.message, null, 2)))
    }
 
    return (
@@ -34,18 +34,19 @@ const Signup =()=>{
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />
-          onChange={handleChange}
+          onChange={handleChange/*(e)=>setEmail(e.target.value)*/}
         <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
+          
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Password" />
+            onChange={handleChange/*(e)=>setPassword(e.target.value)*/}
       </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
+      <Button variant="primary" onClick ={handleSubmit} type="submit">
+        Signup
       </Button>
       </Form>
     </div>
