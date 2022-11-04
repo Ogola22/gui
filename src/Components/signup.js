@@ -19,7 +19,7 @@ const Signup =()=>{
    const handleSubmit = (e)=>{
     e.preventDefault();
 
-    fetch('http://localhoost:4000/register',{
+    fetch('http://localhost:4000/register',{
         method: 'POST',
         headers: {"content-type": "application/json"},
         body: JSON.stringify(data)
@@ -33,8 +33,9 @@ const Signup =()=>{
         <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-          onChange={handleChange/*(e)=>setEmail(e.target.value)*/}
+        <Form.Control type="email" name="email" placeholder="Enter email" 
+          onChange={ handleChange } 
+        />
         <Form.Text className="text-muted">
           
         </Form.Text>
@@ -42,10 +43,11 @@ const Signup =()=>{
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control type="password"  name="password" placeholder="Password" 
             onChange={handleChange/*(e)=>setPassword(e.target.value)*/}
+        />
       </Form.Group>
-      <Button variant="primary" onClick ={handleSubmit} type="submit">
+      <Button variant="primary" onClick={handleSubmit} type="submit">
         Signup
       </Button>
       </Form>
