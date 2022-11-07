@@ -1,32 +1,50 @@
-
-import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
+const Login = () => {
+    
+    const [data, setData]=useState({
+        email: "",
+        password: ""
+    })
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        setData((prev)=> {
+            return {...prev, [name]: value}
+        })
+    }
+    const handleSubmit = (e)=>{
+        e.preventDefault();
 
-function Login() {
-  return (
-    <div className='form-content'>
-      <h4 align="center">Login here.....</h4>
-      <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
+        fetch('http://localhost:4000/login',{
+        method: 'POST',
+        headers: {"content-type": "application/json"},
+        body: JSON.stringify(data)
+        }).then(response => response.json()
+        ).then(result => alert(JSON.stringify(result.error.message, null, 2)));
+        
+        
+    }
+    return (  
+        <div className='form-content'>
+            <h4 align="center">Login here...</h4>
+            <Form>
+                <Form.Group className="mb-3" controlId='formBasicEmail'>
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type='email' name="email" onChange={handleChange} placeholder="Enter email"/>
+                    <Form.Text className='text-muted'>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-      
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
-    </div>
-  );
+                    </Form.Text>
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId='formBasicPassword'>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type='password' name="password" onChange={handleChange} placeholder="Password"/>
+                </Form.Group>
+                <Button variant='primary' onClick={handleSubmit} type="submit">Login</Button>
+            </Form>
+        </div>
+    );
 }
-
+ 
 export default Login;
