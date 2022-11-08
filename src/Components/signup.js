@@ -25,18 +25,12 @@ const Signup = () => {
         
         fetch('http://localhost:4000/register',{
          method: 'POST',
+         body: JSON.stringify(data),
          headers: {"content-type": "application/json"},
-         body: JSON.stringify(data)
-        }).then(response => response.json()
-            //()=>{
-            //console.log('new user added'); 
-        //  history.push('/');
-        //}
-        )
-        //.then(error => alert(error.statu));
+        }).then (response => response.json())
+        
         .then(result => alert(JSON.stringify(result.error.message, null, 2)));
-    }
-
+      }
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
     //     await axios.post('http://localhost:4000/register',{
