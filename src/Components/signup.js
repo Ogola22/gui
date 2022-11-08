@@ -28,8 +28,9 @@ const Signup = () => {
          body: JSON.stringify(data),
          headers: {"content-type": "application/json"},
         }).then (response => response.json())
+            console.log('new user has been added')
+        .then(response => alert(JSON.stringify(response.error.message, null, 2)));
         
-        .then(result => alert(JSON.stringify(result.error.message, null, 2)));
       }
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
@@ -37,7 +38,7 @@ const Signup = () => {
     //         email: email,
     //         password: password
     //     });
-        // history.push("/");
+    //     history.push("/");
     //}
     return ( 
         <div className='form-content'>
