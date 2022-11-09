@@ -29,7 +29,7 @@ const Signup = () => {
           body: JSON.stringify(data),
           headers: {"content-type": "application/json"},
         }).then (res => res.json())
-        .then(res => alert(JSON.stringify(res.error.message, null, 2)));
+        .then(res => alert(JSON.stringify(res.err.message, null, 2)));
        
       }
     
