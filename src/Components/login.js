@@ -21,6 +21,7 @@ const Login = () => {
         headers: {"content-type": "application/json"},
         body: JSON.stringify(data)
         }).then(response => response.json()
+        
         ).then(result => alert(JSON.stringify(result.error.message, null, 2)));
         
         
